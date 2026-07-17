@@ -4,10 +4,12 @@ function processOrders(orders) {
     let processedOrders = 0;
     let skippedInRow = 0;
     let stockFailures = 0;
+    let stopMessage = "";
 
     for (let i = 0; i < orders.length; i++) {
-        let order = orders[i];
         processedOrders++;
+
+        let order = orders[i];
 
         if (order.status === "cancelled" || order.status === "invalid" || !order.stockAvailable) {
             skippedInRow++;
@@ -17,7 +19,7 @@ function processOrders(orders) {
             }
 
             if (skippedInRow === 3 || stockFailures === 3) {
-                console.log("System stopped due to critical failure");
+                stopMessage = "System stopped due to critical failure";
                 break;
             }
 
@@ -29,9 +31,12 @@ function processOrders(orders) {
         skippedInRow = 0;
     }
 
-    console.log("Total Revenue:", totalRevenue);
-    console.log("Successful Orders:", successfulOrders);
-    console.log("Processed Orders:", processedOrders);
+    return {
+        totalRevenue: totalRevenue,
+        successfulOrders: successfulOrders,
+        processedOrders: processedOrders,
+        stopMessage: stopMessage
+    };
 }
 
 let orders = [
@@ -44,4 +49,12 @@ let orders = [
     { id: 7, status: "valid", stockAvailable: true, amount: 600 }
 ];
 
-processOrders(orders);
+let result = processOrders(orders);
+
+console.log("Total Revenue:", result.totalRevenue);
+console.log("Successful Orders:", result.successfulOrders);
+console.log("Processed Orders:", result.processedOrders);
+
+if (result.stopMessage !== "") {
+    console.log(result.stopMessage);
+}
