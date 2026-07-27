@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2,
+    "name": "Ali",
+    "subject": "Physics",
+    "grade": 90
+  },
+  {
+    "id": 3,
+    "name": "Mona",
+    "subject": "English",
+    "grade": 88
+  },
+  {
+    "id": 4,
+    "name": "Sara",
+    "subject": "Biology",
+    "grade": 76
+  },
+  {
+    "id": 4,
+    "name": "Omar",
+    "subject": "Chemistry",
+    "grade": 91
+  }
+]
