@@ -1,7 +1,5 @@
 const nodemailer = require("nodemailer");
 
-// If EMAIL_HOST isn't configured (e.g. local dev), we don't fail the request -
-// we just log the email content/link to the console so the flow can still be tested.
 const sendEmail = async ({ to, subject, html, text }) => {
   if (!process.env.EMAIL_HOST) {
     console.log("=== EMAIL (no SMTP configured, logging instead) ===");
