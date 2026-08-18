@@ -62,7 +62,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// Hash password before saving, only if it was modified
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   this.password = await bcrypt.hash(this.password, 12);
@@ -73,8 +72,6 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };
 
-// Generates a random token, stores its hash on the doc, returns the raw token
-// (raw token goes in the email link, hash stays in the DB - same idea as reset-password).
 userSchema.methods.createVerificationToken = function () {
   const rawToken = crypto.randomBytes(32).toString("hex");
   this.verificationToken = crypto.createHash("sha256").update(rawToken).digest("hex");

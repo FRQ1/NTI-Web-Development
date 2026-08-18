@@ -23,9 +23,12 @@ const register = async (req, res) => {
       text: `Welcome to LibHub! Your email verification token is: ${rawToken}`,
     });
 
+    const token = generateToken(newUser._id);
+
     res.status(201).json({
       status: "success",
       message: "Account created. Please check your email to verify your account",
+      token,
       data: {
         user: {
           id: newUser._id,
