@@ -1,0 +1,212 @@
+.container {
+max-width: 1000px;
+margin: 0 auto;
+padding: 20px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+text-align: center;
+color: #2c3e50;
+margin-bottom: 30px;
+}
+
+.top-controls {
+display: flex;
+justify-content: space-between;
+margin-bottom: 25px;
+padding: 15px;
+background-color: #ecf0f1;
+border-radius: 8px;
+align-items: center;
+}
+
+.main-content {
+display: flex;
+gap: 30px;
+}
+
+.add-member-form {
+flex: 1;
+background-color: #f9f9f9;
+padding: 25px;
+border-radius: 8px;
+border: 1px solid #ddd;
+height: fit-content;
+}
+
+.add-member-form h2, .members-display h2 {
+margin-top: 0;
+color: #34495e;
+}
+
+.form-group {
+margin-bottom: 15px;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 5px;
+font-weight: 600;
+font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+.checkbox-group label {
+display: flex;
+align-items: center;
+gap: 8px;
+cursor: pointer;
+font-weight: normal;
+}
+
+.add-btn {
+background-color: #27ae60;
+color: white;
+padding: 12px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 100%;
+font-size: 16px;
+font-weight: bold;
+transition: background-color 0.2s;
+}
+
+.add-btn:hover:not(:disabled) {
+background-color: #2ecc71;
+}
+
+.add-btn:disabled {
+background-color: #bdc3c7;
+cursor: not-allowed;
+}
+
+.members-display {
+flex: 2;
+}
+
+.empty-state {
+text-align: center;
+padding: 40px;
+background-color: #fef9e7;
+border: 1px dashed #f1c40f;
+border-radius: 8px;
+color: #7f8c8d;
+}
+
+.card-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+gap: 20px;
+}
+
+.member-card {
+border: 1px solid #e0e0e0;
+padding: 20px;
+border-radius: 8px;
+background-color: #ffffff;
+box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+transition: transform 0.2s;
+}
+
+.member-card:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.member-card.unavailable {
+background-color: #fdf2f2;
+border-color: #fadada;
+}
+
+.member-card h3 {
+margin-top: 0;
+color: #2c3e50;
+border-bottom: 2px solid #3498db;
+padding-bottom: 8px;
+}
+
+.status-avail {
+color: #27ae60;
+font-weight: bold;
+}
+
+.status-unavail {
+color: #e74c3c;
+font-weight: bold;
+}
+
+.toggle-btn {
+width: 100%;
+padding: 8px;
+margin-top: 10px;
+background-color: #3498db;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.toggle-btn:hover {
+background-color: #2980b9;
+}
+
+.member-list {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.member-list li {
+padding: 15px;
+margin-bottom: 10px;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 6px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.member-list li.unavailable {
+background-color: #fdf2f2;
+border-color: #fadada;
+}
+
+.small-btn {
+padding: 6px 12px;
+background-color: #e67e22;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.small-btn:hover {
+background-color: #d35400;
+}
+
+button {
+padding: 8px 16px;
+cursor: pointer;
+border-radius: 4px;
+border: 1px solid #ccc;
+background-color: #fff;
+}
+
+button.active {
+background-color: #2c3e50;
+color: white;
+border-color: #2c3e50;
+}
